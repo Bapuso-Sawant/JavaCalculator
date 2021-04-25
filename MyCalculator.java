@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 
 class MyCalculator extends JFrame implements ActionListener {
 
-    JButton jb1;
+    JButton jb1,jb2;
     JTextField jt1, jt2;
     JLabel lbl;
 
@@ -28,8 +28,15 @@ class MyCalculator extends JFrame implements ActionListener {
         jb1 = new JButton("+");
         jb1.setBounds(90, 200, 100, 30);
         add(jb1);
+		
+		
+        jb2 = new JButton("-");
+        jb2.setBounds(200, 200, 100, 30);
+        add(jb2);
 
         jb1.addActionListener(this);
+		jb2.addActionListener(this);
+		
 
         setLayout(null);
         setSize(600, 400);
@@ -45,6 +52,11 @@ class MyCalculator extends JFrame implements ActionListener {
 
         if (e.getSource().equals(jb1)) {
             c = a + b;
+            lbl.setText(String.valueOf(c));
+        }
+		
+		if (e.getSource().equals(jb2)) {
+            c = a - b;
             lbl.setText(String.valueOf(c));
         }
     }
